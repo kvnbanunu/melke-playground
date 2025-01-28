@@ -1,15 +1,120 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melke</title>
-    <script defer src="assets/js/script.js"></script>
-    <link rel="stylesheet" href="assets/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YAML Generator</title>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <script src="script.js" defer></script>
 </head>
-
 <body>
-</body>
+  <div class="container">
+    <h1>YAML Generator for Assignment Design</h1>
+    <form id="yamlForm">
+      <!-- Purpose -->
+      <div class="form-group">
+        <label for="purpose">Purpose:</label>
+        <textarea id="purpose" placeholder="Describe the purpose of the program..."></textarea>
+      </div>
 
+      <!-- Data Types -->
+      <h2>Data Types</h2>
+      <div id="dataTypesContainer">
+        <div class="dataType">
+          <label>Field:</label>
+          <input type="text" class="argField" placeholder="e.g., argc">
+          <label>Type:</label>
+          <input type="text" class="argType" placeholder="e.g., integer">
+          <label>Description:</label>
+          <input type="text" class="argDescription" placeholder="e.g., The number of arguments">
+        </div>
+      </div>
+      <button type="button" id="addArgumentButton" class="btn">Add Argument</button>
+
+      <!-- Settings -->
+      <h2>Settings</h2>
+      <div id="settingsContainer">
+        <div class="setting">
+          <label>Field Name:</label>
+          <input type="text" class="settingsField" placeholder="e.g., count">
+          <label>Type:</label>
+          <input type="text" class="settingsType" placeholder="e.g., unsigned integer">
+          <label>Description:</label>
+          <input type="text" class="settingsDescription" placeholder="e.g., Number of times to display the message">
+        </div>
+      </div>
+      <button type="button" id="addSettingButton" class="btn">Add Setting</button>
+
+      <!-- Functions -->
+      <h2>Functions</h2>
+      <div id="functionsContainer">
+        <div class="function">
+          <label>Function Name:</label>
+          <input type="text" class="functionName" placeholder="e.g., parse_arguments">
+          <label>Description:</label>
+          <input type="text" class="functionDescription" placeholder="e.g., Parse the command-line arguments">
+          <label>Parameters:</label>
+          <input type="text" class="functionParam" placeholder="e.g., ctx (Context)">
+          <label>Return Value:</label>
+          <input type="text" class="functionReturnValue" placeholder="e.g., HANDLE_ARGS">
+        </div>
+      </div>
+      <button type="button" id="addFunctionButton" class="btn">Add Function</button>
+
+      <!-- States -->
+      <h2>States</h2>
+      <div id="statesContainer">
+        <div class="state">
+          <label>State Name:</label>
+          <input type="text" class="stateName" placeholder="e.g., PARSE_ARGS">
+          <label>Description:</label>
+          <input type="text" class="stateDescription" placeholder="e.g., Parse command-line arguments">
+        </div>
+      </div>
+      <button type="button" id="addStateButton" class="btn">Add State</button>
+
+      <!-- State Table -->
+      <h2>State Table</h2>
+      <div id="stateTableContainer">
+        <div class="stateTransition">
+          <label>From State:</label>
+          <input type="text" class="fromState" placeholder="e.g., START">
+          <label>To State:</label>
+          <input type="text" class="toState" placeholder="e.g., PARSE_ARGS">
+          <label>Function:</label>
+          <input type="text" class="transitionFunction" placeholder="e.g., parse_arguments">
+        </div>
+      </div>
+      <button type="button" id="addStateTransitionButton" class="btn">Add State Transition</button>
+
+      <!-- Pseudocode -->
+      <h2>Pseudocode</h2>
+      <div id="pseudocodeContainer">
+        <div class="pseudocode">
+          <label>Function Name:</label>
+          <input type="text" class="pseudocodeFunctionName" placeholder="e.g., parse_arguments">
+          <label>Pseudocode:</label>
+          <textarea class="pseudocodeText" placeholder="Write pseudocode here..."></textarea>
+        </div>
+      </div>
+      <button type="button" id="addPseudocodeButton" class="btn">Add Pseudocode</button>
+
+      <!-- Buttons -->
+      <button type="button" id="generateYamlButton" class="btn">Generate YAML</button>
+      <button type="button" id="downloadYamlButton" class="btn">Download YAML</button>
+      <button type="button" id="downloadWordButton" class="btn">Download Word</button>
+      <button type="button" id="downloadPdfButton" class="btn">Download PDF</button>
+      <button type="button" id="testDiagramButton" class="btn">Test Diagram</button>
+    </form>
+
+    <!-- Output -->
+    <pre id="yamlOutput" class="output"></pre>
+
+    <!-- Diagram Container -->
+    <div id="diagramContainer" style="margin-top: 20px; border: 1px solid #ccc; padding: 10px;">
+      <h2>Generated Diagram</h2>
+      <!-- The diagram will be rendered here -->
+    </div>
+  </div>
+</body>
 </html>
