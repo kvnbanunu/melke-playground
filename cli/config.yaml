@@ -1,0 +1,65 @@
+language: C++
+projectName: myproject
+types:
+  - name: Person
+    fields:
+      - name: name
+        type: string
+        access: private
+      - name: age
+        type: int
+        access: private
+    methods:
+      - name: getName
+        parameters: []
+        returnType: string
+        access: public
+      - name: setName
+        parameters:
+          - name: newName
+            type: string
+        returnType: void
+        access: public
+      - name: getAge
+        parameters: []
+        returnType: int
+        access: public
+      - name: setAge
+        parameters:
+          - name: newAge
+            type: int
+        returnType: void
+        access: public
+
+  - name: Rectangle
+    fields:
+      - name: width
+        type: double
+        access: private
+      - name: height
+        type: double
+        access: private
+    methods:
+      - name: getArea
+        parameters: []
+        returnType: double
+        access: public
+      - name: setDimensions
+        parameters:
+          - name: width
+            type: double
+          - name: height
+            type: double
+        returnType: void
+        access: public
+
+files:
+  - name: shapes
+    functions:
+      - name: calculateTotalArea
+        parameters:
+          - name: rectangles
+            type: Rectangle*
+          - name: count
+            type: int
+        returnType: double
